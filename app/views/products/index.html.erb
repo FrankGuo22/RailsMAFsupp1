@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Products</h1>
+<%= link_to 'Check Our Order', hels_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image url</th>
+      <th>Price</th>
+      <th>Bottle size</th>
+      <th>Company</th>
+      <th>Country</th>
+      <th>Grape type</th>
+      <th>Suit vegetarian</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+	<% if product.company=="Ass2"%>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.image_url %></td>
+        <td><%= product.price %></td>
+        <td><%= product.bottle_size %></td>
+        <td><%= product.company %></td>
+        <td><%= product.country %></td>
+        <td><%= product.grape_type %></td>
+        <td><%= product.suit_vegetarian %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+	  <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

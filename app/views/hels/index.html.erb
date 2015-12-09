@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>Our Order From Ass1[MAF]</strong></p>
+
+
+	<% if @orders!=nil%>
+    	<% @orders.each do |order| %>
+    		<% @lines.each do |line| %>
+  				<% if line.order_id == order.id%>
+					<% @products.each do |product|%>
+						<% if (product.id==line.product_id) && (product.company=="Ass2")%>
+						<p>
+		  				  <strong>Name:</strong>
+		  				  <%= order.name %>
+					  	</p>
+
+						<p>
+		  				  <strong>Telephone:</strong>
+		  				  <%= order.telephone %>
+					  	</p>
+
+						<p>
+		  				  <strong>Address:</strong>
+		  				  <%= order.address %>
+					  	</p>
+
+						<p>
+		  				  <strong>Email:</strong>
+		  				  <%= order.email %>
+					  	</p>
+
+						<p>
+		  				  <strong>Pay type:</strong>
+		  				  <%= order.pay_type %>
+
+					  	</p>
+	 
+	    				<p><%= line.quantity %> &times; <%= product.title%> </p>
+						<% end %>
+					<% end %>
+				<% end %>
+	  		<% end %>
+	         <br>
+	  	<% end %>
+	<% end %>
+
+
+<br>
+

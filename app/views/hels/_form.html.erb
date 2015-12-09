@@ -1,0 +1,17 @@
+<%= form_for(@hel) do |f| %>
+  <% if @hel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hel.errors.count, "error") %> prohibited this hel from being saved:</h2>
+
+      <ul>
+      <% @hel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
